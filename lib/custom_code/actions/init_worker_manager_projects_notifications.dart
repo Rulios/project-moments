@@ -20,13 +20,13 @@ Future initWorkerManagerProjectsNotifications() async {
   Workmanager().initialize(
       callbackDispatcher, // The top level function, aka callbackDispatcher
       isInDebugMode:
-          true // If enabled it will post a notification whenever the task is running. Handy for debugging tasks
+          false // If enabled it will post a notification whenever the task is running. Handy for debugging tasks
       );
   print("Checking PROJECTS... INIT WORKER MANAGER");
 
   Workmanager().registerPeriodicTask(
       "check-projects-notifications", "check-projects-notifications",
-      tag: "check-projects-notification", frequency: Duration(hours: 1));
+      tag: "check-projects-notification", frequency: Duration(hours: 3));
 
   //for testing purposes
   /* Workmanager().registerOneOffTask(
